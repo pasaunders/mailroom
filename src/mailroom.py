@@ -2,35 +2,35 @@
 
 import io
 from faker import Faker
-from builtins import input
+# from builtins import input
 
 donors = {}
 
 
-def get_input():
-    """Function gathers all user input and controls program flow."""
-    ask_report = input("Thankyou letter (1), report (2) or quit? (q)")
-    if ask_report == 1:
-        thankyou_input = input("Do you want a list (1) or to enter a donor name (2)")
-        while thankyou_input == 1:
-            show_list()
-            thankyou_input = input("Do you want a list (1) or to enter a donor name (2)")
-        if thankyou_input == 2:
-            name_added = input("Please enter the donor name:")
-            list_check(name_added)
-            donor_amount = input("How much did they donate?")
-            add_donation(name_added, donor_amount)
-            # print_email()
-    elif ask_report == 2:
+# def get_input():
+#     """Function gathers all user input and controls program flow."""
+#     ask_report = input("Thankyou letter (1), report (2) or quit? (q)")
+#     if ask_report == 1:
+#         thankyou_input = input("Do you want a list (1) or to enter a donor name (2)")
+#         while thankyou_input == 1:
+#             show_list()
+#             thankyou_input = input("Do you want a list (1) or to enter a donor name (2)")
+#         if thankyou_input == 2:
+#             name_added = input("Please enter the donor name:")
+#             list_check(name_added)
+#             donor_amount = input("How much did they donate?")
+#             add_donation(name_added, donor_amount)
+#             # print_email()
+#     elif ask_report == 2:
 
-    elif ask_report.lower() == 'q':
+#     elif ask_report.lower() == 'q':
 
-    else:
-        print("Incorrect input, please enter 1, 2 or q")
-        get_input()
+#     else:
+#         print("Incorrect input, please enter 1, 2 or q")
+#         get_input()
 
 
-def show_list():
+# def show_list():
 
 
 def list_check(name_added):
