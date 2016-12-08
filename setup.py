@@ -15,9 +15,9 @@ setup(
     package_dir={'': 'src'},
     install_requires=['faker'],
     extras_require={'test': ['pytest', 'pytest-watch', 'pytest-cov', 'tox']},
-    entry_points={
-        'console scripts': [
-            "mailroom = mailroom:main"
-        ]
-    }
+    # entry_points={
+    #     'console scripts': [
+    #         "mailroom = mailroom:main"
+    #     ]
+    # }
 )
