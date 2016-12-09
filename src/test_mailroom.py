@@ -2,13 +2,7 @@
 
 
 import pytest
-from faker import Faker
 
-    # donors = {
-    #                 'Matthew Wade': [50.00, 100.00],
-    #                 'Betty Stewart': [100.00, 50.00, 150.00],
-    #                 'Timothy Berg': [10.00],
-    #                 'Paul Benson': [5]}
 
 def test_list_check():
     """Tests to see whether names are added to the donor table"""
@@ -28,3 +22,11 @@ def test_print_email():
     from mailroom import print_email, add_donation, donors
     add_donation('Patrick Stewart', 50)
     assert 'Patrick Stewart' and '50' in print_email('Patrick Stewart')
+
+
+def test_print_donor_list():
+    from mailroom import print_donor_list, add_donation, donors
+    add_donation('Patrick Stewart', 50)
+    add_donation('Patrick Stewart', 200)
+    example = "Name: {}, Total Donated: {}, Number of Donations: {}, Average Donation: {}.".format('Patrick Stewart', 250, 2, 125)
+    assert print_donor_list('Patrick Stewart') == example

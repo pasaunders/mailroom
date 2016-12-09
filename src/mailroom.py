@@ -1,10 +1,14 @@
 """Automate thankyou notes and generates donor reports."""
 
 import io
-from faker import Faker
+
 # from builtins import input
 
-donors = {}
+donors = {
+            'Matthew Wade': [50.00, 100.00],
+            'Betty Stewart': [100.00, 50.00, 150.00],
+            'Timothy Berg': [10.00],
+            'Paul Benson': [5]}
 
 
 def get_input():
@@ -23,15 +27,18 @@ def get_input():
             print(print_email(name_added))
             get_input()
     elif ask_report == 2:
-
-    elif ask_report.lower() == 'q':
-
-    else:
-        print("Incorrect input, please enter 1, 2 or q")
+        print("Below, please find a report of all donor information.")
+        for key in donors:
+            print(print_donor_list(key))
         get_input()
+    # elif ask_report.lower() == 'q':
+
+    # else:
+    #     print("Incorrect input, please enter 1, 2 or q")
+    #     get_input()
 
 
-def show_list():
+# def show_list():
 
 
 def list_check(name_added):
@@ -48,3 +55,8 @@ def add_donation(name_added, donor_amount):
 def print_email(name_added):
     """Take a donor name and uses it to draft a thank you letter for their most recent donation."""
     return "Dear {}; Thank you for your generous donation of {}. Your continued support allows us to fight on for the unprotected rainforests of the world.".format(name_added, donors[name_added][-1])
+
+
+def print_donor_list(key):
+    """Return donor name, total donated, number of donations, average donation."""
+    return "Name: {}, Total Donated: {}, Number of Donations: {}, Average Donation: {}.".format(key, sum(donors[key]), len(donors[key]), sum(donors[key])/len(donors[key]))
