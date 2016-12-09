@@ -18,6 +18,13 @@ def test_list_check():
 
 
 def test_add_donation():
+    """Test whether we properly add dontaions to existing donors."""
     from mailroom import add_donation, donors
-    add_donation('Patrick Stewart', 50.00)
-    assert donors['Patrick Stewart'] == [50.00]
+    add_donation('Patrick Stewart', 50)
+    assert donors['Patrick Stewart'] == [50]
+
+def test_print_email():
+    """Test whether we properly add values to the email generator."""
+    from mailroom import print_email, add_donation, donors
+    add_donation('Patrick Stewart', 50)
+    assert 'Patrick Stewart' and '50' in print_email('Patrick Stewart')
