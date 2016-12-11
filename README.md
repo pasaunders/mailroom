@@ -14,44 +14,48 @@ The user can quit or return to the home menu at any time.
 
 ```
 #Test Results:
-py27 installed: coverage==4.2,Faker==0.7.3,ipaddress==1.0.17,mailroom==0.1,py==1.4.31,pytest==3.0.5,pytest-cov==2.4.0,python-dateutil==2.6.0,six==1.10.0
-py27 runtests: PYTHONHASHSEED='4160572942'
-py27 runtests: commands[0] | py.test src --cov=src --cov-report term-missing
-======================================== test session starts ========================================
-platform darwin -- Python 2.7.10, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
+============================================================= test session starts =============================================================
+platform linux2 -- Python 2.7.12, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
+rootdir: /home/kaorti/code/python_class/mailroom, inifile:
 plugins: cov-2.4.0
 collected 5 items 
 
 src/test_mailroom.py .....
 
----------- coverage: platform darwin, python 2.7.10-final-0 ----------
+---------- coverage: platform linux2, python 2.7.12-final-0 ----------
 Name                   Stmts   Miss  Cover   Missing
 ----------------------------------------------------
-src/mailroom.py           44     29    34%   17-44, 60, 75
-src/test_mailroom.py      23      0   100%
+src/mailroom.py           45     29    36%   17-45, 61, 80
+src/test_mailroom.py      22      0   100%
 ----------------------------------------------------
 TOTAL                     67     29    57%
 
 
-===================================== 5 passed in 0.03 seconds ======================================
+========================================================== 5 passed in 0.07 seconds ===========================================================
+py35 inst-nodeps: /home/kaorti/code/python_class/mailroom/.tox/dist/mailroom-0.1.zip
 py35 installed: coverage==4.2,Faker==0.7.3,mailroom==0.1,py==1.4.31,pytest==3.0.5,pytest-cov==2.4.0,python-dateutil==2.6.0,six==1.10.0
-py35 runtests: PYTHONHASHSEED='4160572942'
+py35 runtests: PYTHONHASHSEED='978385730'
 py35 runtests: commands[0] | py.test src --cov=src --cov-report term-missing
-======================================== test session starts ========================================
-platform darwin -- Python 3.5.2, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
+============================================================= test session starts =============================================================
+platform linux -- Python 3.5.2, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
+rootdir: /home/kaorti/code/python_class/mailroom, inifile:
 plugins: cov-2.4.0
 collected 5 items 
 
 src/test_mailroom.py .....
 
----------- coverage: platform darwin, python 3.5.2-final-0 -----------
+----------- coverage: platform linux, python 3.5.2-final-0 -----------
 Name                   Stmts   Miss  Cover   Missing
 ----------------------------------------------------
-src/mailroom.py           44     29    34%   17-44, 60, 75
-src/test_mailroom.py      23      0   100%
+src/mailroom.py           45     29    36%   17-45, 61, 80
+src/test_mailroom.py      22      0   100%
 ----------------------------------------------------
 TOTAL                     67     29    57%
 
 
-===================================== 5 passed in 0.03 seconds ======================================
+========================================================== 5 passed in 0.28 seconds ===========================================================
+___________________________________________________________________ summary ___________________________________________________________________
+  py27: commands succeeded
+  py35: commands succeeded
+  congratulations :)
 ```
