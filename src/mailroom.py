@@ -31,7 +31,7 @@ def get_input():
         if thankyou_input == '2':
             name_added = user_input("Please enter the donor name: ")
             list_check(name_added, donors)
-            donor_amount = int(user_input("How much did they donate? "))
+            donor_amount = float(user_input("How much did they donate? "))
             add_donation(name_added, donor_amount, donors)
             print(print_email(name_added, donors))
             get_input()
