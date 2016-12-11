@@ -2,8 +2,9 @@
 
 import io
 import sys
+from sys import version_info
 
-# from builtins import input
+from builtins import input
 
 donors = {
     'Matthew Wade': [50.00, 100.00],
@@ -14,22 +15,30 @@ donors = {
 
 def get_input():
     """Function gathers all user input and controls program flow."""
-    ask_report = input("Thank you letter (1), report (2), return to the home menu, (3), or quit? (q) ")
+    # Comply inputs between Python 2 and 3. Default to Python 3:
+    user_input = input
+    # If Python 2:
+    if sys.version_info[:2] <= (2, 7):
+        user_input = raw_input
+    ask_report = user_input("Thank you letter (1), report (2), return to the home menu, (3), or quit? (q) ")
     # import pdb; pdb.set_trace()
     if ask_report == '1':
-        thankyou_input = input("Do you want a list (1) or to enter a donor name (2) ")
+        thankyou_input = user_input("Do you want a list (1) or to enter a donor name (2) ")
         while thankyou_input == '1':
             print("\nDonor List:\n")
             print(show_list(donors))
-            thankyou_input = input("Do you want to see a list (1), enter a donor name (2), or return to the main menu? (3) ")
+            thankyou_input = user_input("Do you want to see a list (1), enter a donor name (2), or return to the main menu? (3) ")
         if thankyou_input == '2':
-            name_added = input("Please enter the donor name: ")
+            name_added = user_input("Please enter the donor name: ")
             list_check(name_added, donors)
-            donor_amount = int(input("How much did they donate? "))
+            donor_amount = int(user_input("How much did they donate? "))
             add_donation(name_added, donor_amount, donors)
             print(print_email(name_added, donors))
             get_input()
         elif thankyou_input == '3':
+            get_input()
+        else:
+            print("Incorrect input. Please try again. ")
             get_input()
     elif ask_report == '2':
         print('{:<30} {:<30} {:<30} {:<30}'.format('Name:', 'Total Donated', 'Number of Donations', 'Average Donation'))
@@ -74,7 +83,6 @@ def print_donor_list(key, donors_new):
 if __name__ == "__main__":
     """Run the program in the terminal."""
 
-
-def main():
-    """Allow user to run mailroom.py with console command defined in setup."""
-    get_input()
+    def main():
+        """Enable mailroom.py with console command defined in setup."""
+        get_input()
