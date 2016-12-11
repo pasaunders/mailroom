@@ -28,7 +28,7 @@ def test_print_email():
 def test_print_donor_list():
     from mailroom import print_donor_list, add_donation, donors
     donors_new = {'Patrick Stewart': [50, 200]}
-    example = "\nName: {}\n Total Donated: {}\n Number of Donations: {}\n Average Donation: {}\n\n".format('Patrick Stewart', 250, 2, 125)
+    example = '{:<30} {:<30} {:<30} {:<30} \n'.format('Patrick Stewart', 250, 2, 125)
     assert print_donor_list('Patrick Stewart', donors_new) == example
 
 

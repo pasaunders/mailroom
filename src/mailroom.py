@@ -15,27 +15,28 @@ donors = {
 def get_input():
     """Function gathers all user input and controls program flow."""
     ask_report = input("Thank you letter (1), report (2), return to the home menu, (3), or quit? (q) ")
-    if ask_report == 1:
+    # import pdb; pdb.set_trace()
+    if ask_report == '1':
         thankyou_input = input("Do you want a list (1) or to enter a donor name (2) ")
-        while thankyou_input == 1:
+        while thankyou_input == '1':
             print("\nDonor List:\n")
             print(show_list(donors))
             thankyou_input = input("Do you want to see a list (1), enter a donor name (2), or return to the main menu? (3) ")
-        if thankyou_input == 2:
+        if thankyou_input == '2':
             name_added = input("Please enter the donor name: ")
             list_check(name_added, donors)
             donor_amount = int(input("How much did they donate? "))
             add_donation(name_added, donor_amount, donors)
             print(print_email(name_added, donors))
             get_input()
-        elif thankyou_input == 3:
+        elif thankyou_input == '3':
             get_input()
-    elif ask_report == 2:
-        print("Below, please find a report of all donor information. ")
+    elif ask_report == '2':
+        print('{:<30} {:<30} {:<30} {:<30}'.format('Name:', 'Total Donated', 'Number of Donations', 'Average Donation'))
         for key in donors:
             print(print_donor_list(key, donors))
         get_input()
-    elif ask_report == 3:
+    elif ask_report == '3':
         get_input()
     elif ask_report == 'q' or ask_report == 'Q':
         sys.exit()
@@ -67,7 +68,7 @@ def print_email(name_added, donors_new):
 
 def print_donor_list(key, donors_new):
     """Return donor name, total donated, number of donations, average donation."""
-    return "\nName: {}\n Total Donated: {}\n Number of Donations: {}\n Average Donation: {}\n\n".format(key, sum(donors_new[key]), len(donors_new[key]), int(sum(donors_new[key]) / len(donors_new[key])))
+    return "{:<30} {:<30} {:<30} {:<30}".format(key, sum(donors_new[key]), len(donors_new[key]), int(sum(donors_new[key]) / len(donors_new[key])))
 
 
 if __name__ == "__main__":
